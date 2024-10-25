@@ -5,15 +5,20 @@ import "./task.css";
 
 interface TaskProps {
   task: TaskType;
+  onDelete: (task: TaskType) => void;
 }
 
-const Task: React.FC<TaskProps> = ({ task }) => {
+const Task: React.FC<TaskProps> = ({ task, onDelete }) => {
   const handleDone = () => {
     const container = document.getElementById(`${task.id}`);
 
     if (container) {
       container.style.backgroundColor = "green";
     }
+  };
+
+  const handleDelete = () => {
+    onDelete(task);
   };
 
   return (
@@ -24,7 +29,7 @@ const Task: React.FC<TaskProps> = ({ task }) => {
       </div>
       <div className="task-actions">
         <button onClick={handleDone}>Done</button>
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );
