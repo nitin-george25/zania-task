@@ -1,0 +1,14 @@
+.task-container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 1px solid #ededed;
+}
+
+.task-actions {
+  display: flex;
+  gap: 1em;
+}
