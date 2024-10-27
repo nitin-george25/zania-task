@@ -3,15 +3,16 @@ import { tasks } from "../../data";
 import { TaskType } from "../../types/task";
 import Task from "../task/Task";
 
+import "./task-container.css";
+import { useTaskList } from "../../custom-hooks/useTasks";
+
 interface TaskContainerProps {}
 
 const TaskContainer: React.FC<TaskContainerProps> = () => {
-  const [taskList, setTaskList] = useState<TaskType[]>(tasks);
+  const { taskList, addTask, deleteTask } = useTaskList();
 
   const handleDelete = (toBeDeleted: TaskType) => {
-    const updatedTasks = taskList.filter((task) => task.id !== toBeDeleted.id);
-
-    setTaskList(updatedTasks);
+    deleteTask(toBeDeleted);
   };
 
   return (

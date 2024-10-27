@@ -1,0 +1,26 @@
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  width: 300px;
+}
+
+.field-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+label {
+  font-size: 0.875em;
+}
+
+.field-box.input::placeholder {
+  color: #808080;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5em;
+}

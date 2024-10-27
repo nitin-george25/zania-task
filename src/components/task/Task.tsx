@@ -2,6 +2,7 @@ import React from "react";
 import { TaskType } from "../../types/task";
 
 import "./task.css";
+import { useTaskList } from "../../custom-hooks/useTasks";
 
 interface TaskProps {
   task: TaskType;
@@ -9,12 +10,9 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ task, onDelete }) => {
+  const { updateStatus } = useTaskList();
   const handleDone = () => {
-    const container = document.getElementById(`${task.id}`);
-
-    if (container) {
-      container.style.backgroundColor = "green";
-    }
+    updateStatus(task);
   };
 
   const handleDelete = () => {
@@ -22,7 +20,7 @@ const Task: React.FC<TaskProps> = ({ task, onDelete }) => {
   };
 
   return (
-    <div id={`${task.id}`} className="task-container">
+    <div id={`${task.id}`} className={`task-container ${task.status}`}>
       <div className="task-info">
         <h3 className="task-title">{task.title}</h3>
         <p className="task-description">{task.description}</p>

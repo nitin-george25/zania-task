@@ -1,14 +1,37 @@
 .task-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1em;
 
   padding: 1em;
   border-radius: 0.5em;
-  border: 1px solid #ededed;
+  border: 1px solid #dedede;
+
+  margin-bottom: 1em;
+}
+
+.done {
+  background-color: green;
+}
+
+.task-title {
+  font-size: 1em;
+  margin: 0;
+}
+
+.task-description {
+  font-size: 0.875em;
 }
 
 .task-actions {
   display: flex;
   gap: 1em;
+}
+
+button {
+  background-color: white;
+  border: 1px solid #dedede;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
 }
