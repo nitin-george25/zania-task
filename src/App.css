@@ -6,6 +6,11 @@
   padding: 2em;
 }
 
+.toolbar {
+  display: flex;
+  gap: 1em;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -26,4 +31,9 @@
 
 button {
   cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  gap: 1em;
 }

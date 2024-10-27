@@ -6,10 +6,12 @@ import Task from "../task/Task";
 import "./task-container.css";
 import { useTaskList } from "../../custom-hooks/useTasks";
 
-interface TaskContainerProps {}
+interface TaskContainerProps {
+  tasks: TaskType[];
+}
 
-const TaskContainer: React.FC<TaskContainerProps> = () => {
-  const { taskList, addTask, deleteTask } = useTaskList();
+const TaskContainer: React.FC<TaskContainerProps> = ({ tasks }) => {
+  const { addTask, deleteTask } = useTaskList();
 
   const handleDelete = (toBeDeleted: TaskType) => {
     deleteTask(toBeDeleted);
@@ -17,7 +19,7 @@ const TaskContainer: React.FC<TaskContainerProps> = () => {
 
   return (
     <div className="task-list-container">
-      {taskList.map((task: TaskType) => (
+      {tasks.map((task: TaskType) => (
         <Task key={task.id} task={task} onDelete={handleDelete} />
       ))}
     </div>
